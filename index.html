@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar Editor</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#0f0f0f;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:#1a1a1a;
+    padding:25px;
+    border-radius:10px;
+    width:400px;
+}
+
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#5865F2;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Solicitar Editor</h2>
+
+<form id="pedidoForm">
+
+<label>Nome</label>
+<input type="text" id="nome" required>
+
+<label>Discord</label>
+<input type="text" id="discord" required>
+
+<label>Tipo de Vídeo</label>
+<input type="text" id="tipo" required>
+
+<label>Duração</label>
+<input type="text" id="duracao" required>
+
+<label>Prazo</label>
+<input type="text" id="prazo" required>
+
+<label>Orçamento</label>
+<input type="text" id="orcamento" required>
+
+<label>Detalhes</label>
+<textarea id="detalhes"></textarea>
+
+<button type="submit">Enviar Pedido</button>
+
+</form>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
