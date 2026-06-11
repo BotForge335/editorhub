@@ -1,40 +1,50 @@
-const webhook =
-"https://discord.com/api/webhooks/1514348407123087491/dQQqm_o0vnNrFZYnRrbaTb_OfKA1amPS1aiX2353WDnSe2egdF-wKc8SEqsXJqAzNbm2";
+const webhook = "https://discord.com/api/webhooks/1514432539245285456/Jwbtj1FwM4jYLkobq7po6wKFsF6kt-aRzuuxX13qTKjp1Xyy9M0U4x1DSCIjnEcMTcue";
 
 document.getElementById("pedidoForm")
-.addEventListener("submit", async (e) => {
+.addEventListener("submit", async (e)=>{
 
 e.preventDefault();
 
-const nome = document.getElementById("nome").value;
-const discord = document.getElementById("discord").value;
-const tipo = document.getElementById("tipo").value;
-const duracao = document.getElementById("duracao").value;
-const prazo = document.getElementById("prazo").value;
-const orcamento = document.getElementById("orcamento").value;
-const detalhes = document.getElementById("detalhes").value;
-
 const data = {
-embeds: [{
-title: "📥 Novo Pedido",
-color: 5793266,
+embeds:[{
+title:"👤 Procurando Cliente",
+color:10038562,
 
-fields: [
+fields:[
 {
-name: "👤 Cliente",
-value: nome
+name:"🎬 Editor",
+value:document.getElementById("nome").value
 },
 {
-name: "💬 Discord",
-value: discord
+name:"💬 Discord",
+value:document.getElementById("discord").value
 },
 {
-name: "🎬 Tipo",
-value: tipo
+name:"🎥 Especialidade",
+value:document.getElementById("tipo").value
 },
 {
-name: "⏱️ Duração",
-value: duracao
+name:"💰 Valor",
+value:document.getElementById("orcamento").value || "Não informado"
+},
+{
+name:"📝 Detalhes",
+value:document.getElementById("detalhes").value || "Nenhum"
+}
+]
+}]
+};
+
+await fetch(webhook,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+});
+
+alert("Pedido enviado!");
+});acao
 },
 {
 name: "📅 Prazo",
