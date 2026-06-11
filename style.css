@@ -1,0 +1,219 @@
+/* ======================
+   RESET
+====================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ======================
+   BODY
+====================== */
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+}
+
+/* ======================
+   FUNDO
+====================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+
+    background:
+    radial-gradient(circle at top left,#8a2be2 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#6a0dad 0%,transparent 35%),
+    #0b0b0b;
+}
+
+/* ======================
+   CONTAINER
+====================== */
+
+.container{
+    width:90%;
+    max-width:750px;
+}
+
+/* ======================
+   CARDS
+====================== */
+
+.home,
+.form-card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 0 30px rgba(138,43,226,0.2);
+
+    animation:fade .4s ease;
+}
+
+/* ======================
+   TÍTULOS
+====================== */
+
+h1{
+    font-size:3rem;
+    text-align:center;
+    margin-bottom:10px;
+
+    color:#b36cff;
+
+    text-shadow:
+    0 0 15px rgba(179,108,255,0.7);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#b36cff;
+}
+
+p{
+    text-align:center;
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+/* ======================
+   BOTÕES
+====================== */
+
+.buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    width:100%;
+
+    background:#8a2be2;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 25px #8a2be2;
+}
+
+.voltar{
+    margin-top:10px;
+    background:#1e1e1e;
+}
+
+/* ======================
+   INPUTS
+====================== */
+
+input,
+textarea{
+    width:100%;
+
+    margin-bottom:15px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#151515;
+
+    color:white;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+    box-shadow:
+    0 0 15px rgba(138,43,226,.7);
+}
+
+textarea{
+    resize:none;
+    min-height:120px;
+}
+
+/* ======================
+   HIDDEN
+====================== */
+
+.hidden{
+    display:none;
+}
+
+/* ======================
+   ANIMAÇÃO
+====================== */
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ======================
+   RESPONSIVO
+====================== */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    .home,
+    .form-card{
+        padding:20px;
+    }
+
+}

@@ -3,341 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Procurar Cliente</title>
 
-<style>
+<title>Editor Hub</title>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
+<link rel="stylesheet" href="style.css">
 
-body{
-    background:linear-gradient(135deg,#0a0a0a,#12051f,#22003d);
-    min-height:100vh;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-.container{
-    width:100%;
-    max-width:550px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(15px);
-    border-radius:20px;
-    padding:30px;
-}
-
-.logo{
-    text-align:center;
-    font-size:36px;
-    font-weight:800;
-    color:#a855f7;
-    margin-bottom:10px;
-}
-
-.sub{
-    text-align:center;
-    color:#cfcfcf;
-    margin-bottom:30px;
-}
-
-input, textarea{
-    width:100%;
-    padding:14px;
-    margin-bottom:12px;
-    border:none;
-    border-radius:10px;
-    background:#1f1f1f;
-    color:white;
-    outline:none;
-}
-
-input:focus,
-textarea:focus{
-    border:1px solid #9333ea;
-}
-
-textarea{
-    resize:none;
-    height:120px;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    background:#9333ea;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    box-shadow:0 0 25px #9333ea;
-    transform:translateY(-3px);
-}
-
-.info{
-    margin-top:20px;
-    text-align:center;
-    color:#9e9e9e;
-    font-size:14px;
-}
-
-</style>
 </head>
 <body>
 
+<div class="background"></div>
+
 <div class="container">
 
-<div class="logo">
-👤 Procurar Cliente
-</div>
+    <div class="home" id="home">
 
-<div class="sub">
-Encontre clientes para seus serviços de edição.
-</div>
+        <h1>EDITOR HUB</h1>
 
-<form id="pedidoForm">
+        <p>
+            Conectando clientes e editores.
+        </p>
 
-<input
-type="text"
-id="nome"
-placeholder="Seu nome"
-required>
+        <div class="buttons">
 
-<input
-type="text"
-id="discord"
-placeholder="Seu Discord"
-required>
+            <button class="btn" onclick="abrirEditor()">
+                🔎 Procurar Editor
+            </button>
 
-<input
-type="text"
-id="tipo"
-placeholder="O que você edita? (Minecraft, Shorts, Vlogs...)"
-required>
+            <button class="btn" onclick="abrirCliente()">
+                💼 Procurar Cliente
+            </button>
 
-<input
-type="text"
-id="orcamento"
-placeholder="Valor médio que cobra">
+        </div>
 
-<textarea
-id="detalhes"
-placeholder="Fale sobre sua experiência, prazo de entrega e serviços."></textarea>
+    </div>
 
-<button type="submit">
-🚀 Procurar Clientes
-</button>
+    <div class="form-card hidden" id="editorForm">
 
-</form>
+        <h2>🔎 Procurando Editor</h2>
 
-<div class="info">
-Os dados serão enviados para o canal de procura de clientes.
-</div>
+        <form onsubmit="enviarEditor(event)">
+
+            <input type="text" id="editorNome" placeholder="Seu nome" required>
+
+            <input type="text" id="editorDiscord" placeholder="Discord" required>
+
+            <input type="text" id="editorTipo" placeholder="Tipo de edição" required>
+
+            <input type="text" id="editorPrazo" placeholder="Prazo" required>
+
+            <input type="text" id="editorOrcamento" placeholder="Orçamento" required>
+
+            <textarea id="editorInfo" placeholder="Informações adicionais"></textarea>
+
+            <button class="btn" type="submit">
+                Enviar Pedido
+            </button>
+
+            <button class="btn voltar" type="button" onclick="voltarHome()">
+                Voltar
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="form-card hidden" id="clienteForm">
+
+        <h2>💼 Procurando Cliente</h2>
+
+        <form onsubmit="enviarCliente(event)">
+
+            <input type="text" id="clienteNome" placeholder="Seu nome" required>
+
+            <input type="text" id="clienteDiscord" placeholder="Discord" required>
+
+            <input type="text" id="clienteTipo" placeholder="Tipo de edição" required>
+
+            <input type="text" id="clientePrograma" placeholder="Programa utilizado" required>
+
+            <input type="text" id="clientePortfolio" placeholder="Portfólio">
+
+            <input type="text" id="clientePreco" placeholder="Preço" required>
+
+            <textarea id="clienteInfo" placeholder="Informações adicionais"></textarea>
+
+            <button class="btn" type="submit">
+                Enviar Pedido
+            </button>
+
+            <button class="btn voltar" type="button" onclick="voltarHome()">
+                Voltar
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
 
 <script src="script.js"></script>
-
-</body>
-</html>color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.close{
-    margin-top:10px;
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    background:#333;
-    color:white;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#888;
-}
-</style>
-</head>
-<body>
-
-<header>
-    <div class="logo">🎬 Ateliê dos Editores</div>
-    <div class="subtitle">
-        Conectando clientes e editores.
-    </div>
-</header>
-
-<section class="hero">
-
-<h1>
-Encontre um <span>Editor</span>
-ou um <span>Cliente</span>
-em poucos cliques.
-</h1>
-
-<p>
-Publique pedidos e encontre oportunidades rapidamente.
-</p>
-
-<div class="buttons">
-    <button class="btn editor" onclick="abrirEditor()">
-        🎥 Pedir Editor
-    </button>
-
-    <button class="btn cliente" onclick="abrirCliente()">
-        👤 Pedir Cliente
-    </button>
-</div>
-
-</section>
-
-<section class="cards">
-
-<div class="card">
-<h3>⚡ Rápido</h3>
-<p>Pedidos enviados instantaneamente pelo webhook.</p>
-</div>
-
-<div class="card">
-<h3>🎬 Profissional</h3>
-<p>Feito exclusivamente para editores de vídeo.</p>
-</div>
-
-<div class="card">
-<h3>🤝 Conexão</h3>
-<p>Junte clientes e editores em um só lugar.</p>
-</div>
-
-</section>
-
-<div class="modal" id="modal">
-
-<div class="form-box">
-
-<h2 id="titulo">Pedido</h2>
-
-<form id="formulario">
-
-<input type="text" id="nome" placeholder="Nome" required>
-
-<input type="text" id="discord" placeholder="Discord" required>
-
-<input type="text" id="tipo" placeholder="Tipo de vídeo ou cliente" required>
-
-<input type="text" id="orcamento" placeholder="Orçamento">
-
-<textarea id="detalhes" placeholder="Detalhes"></textarea>
-
-<button class="send" type="submit">
-Enviar Pedido
-</button>
-
-<button type="button" class="close" onclick="fecharModal()">
-Fechar
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-<footer>
-© 2026 Ateliê dos Editores
-</footer>
-
-<script>
-
-const WEBHOOK = "https://discord.com/api/webhooks/1514432539245285456/Jwbtj1FwM4jYLkobq7po6wKFsF6kt-aRzuuxX13qTKjp1Xyy9M0U4x1DSCIjnEcMTcue"
-";
-
-let tipoPedido = "";
-
-function abrirEditor(){
-    tipoPedido = "PEDIDO DE EDITOR";
-    document.getElementById("titulo").innerText = "🎥 Pedir Editor";
-    document.getElementById("modal").style.display="flex";
-}
-
-function abrirCliente(){
-    tipoPedido = "PEDIDO DE CLIENTE";
-    document.getElementById("titulo").innerText = "👤 Pedir Cliente";
-    document.getElementById("modal").style.display="flex";
-}
-
-function fecharModal(){
-    document.getElementById("modal").style.display="none";
-}
-
-document.getElementById("formulario")
-.addEventListener("submit", async function(e){
-
-e.preventDefault();
-
-const nome = document.getElementById("nome").value;
-const discord = document.getElementById("discord").value;
-const tipo = document.getElementById("tipo").value;
-const orcamento = document.getElementById("orcamento").value;
-const detalhes = document.getElementById("detalhes").value;
-
-await fetch(WEBHOOK,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-embeds:[{
-title:tipoPedido,
-color:10038562,
-fields:[
-{
-name:"👤 Nome",
-value:nome
-},
-{
-name:"💬 Discord",
-value:discord
-},
-{
-name:"📌 Tipo",
-value:tipo
-},
-{
-name:"💰 Orçamento",
-value:orcamento || "Não informado"
-},
-{
-name:"📝 Detalhes",
-value:detalhes || "Nenhum"
-}
-],
-timestamp:new Date()
-}]
-})
-});
-
-alert("Pedido enviado com sucesso!");
-fecharModal();
-
-});
-
-</script>
 
 </body>
 </html>
